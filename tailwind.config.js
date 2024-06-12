@@ -1,13 +1,11 @@
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from 'tailwindcss/defaultTheme'
+
 export default {
   content: ['./src/**/*.{astro,js,jsx,ts,tsx}'],
   theme: {
     fontFamily: {
-      sans: ['Noto Sans JP', 'sans-serif'],
-      recruitPC: ['"游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif'],
-      recruit: ['ヒラギノ角ゴ Pro W3'],
-
-      inter: ['Inter', 'sans-serif']
+      sans: ['DM Mono', ...defaultTheme.fontFamily.sans],
     },
     screens: {
       'sm': '641px',

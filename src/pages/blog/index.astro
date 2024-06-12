@@ -1,0 +1,22 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { newtClient } from "../../libs/newt";
+import type { Post,RequiredImageType } from "../../libs/newt"
+import  AllBlog  from "../../components/templates/AllBlog.tsx"
+
+
+const { items } = await newtClient.getContents<Post>({
+    appUid : "blog" ,
+    modelUid : "post",
+    query : {
+        select:['_id','title','content','image','location']
+    }
+})
+//console.log(items)
+---
+
+<Layout title="Welcome to MyBlog.">
+    <main>
+        <AllBlog {...items} client:load/>
+    </main>
+</Layout>

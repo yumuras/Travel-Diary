@@ -1,0 +1,51 @@
+export type Skill = {
+    name:string
+    images:string
+}
+
+export const skills:Skill[] = [
+    {
+        name:"python",
+        images:"public/images/icons/icons8-python-96.png"
+    },
+    {
+        name:"javascript",
+        images:"public/images/icons/icons8-javascript-96.png"
+    },
+    {
+        name:"typescript",
+        images:"public/images/icons/icons8-タイプスクリプト-96.png"
+    },
+    {
+        name:"firebase",
+        images:"public/images/icons/icons8-ファイアベース-96.png"
+    },
+    {
+        name:"astro",
+        images:"public/images/icons/icons8-astro-js-96.png"
+    },
+    {
+        name:"react",
+        images:"public/images/icons/icons8-react-native-96.png"
+    },
+    {
+        name:"node",
+        images:"public/images/icons/icons8-nodejs-96.png"
+    },
+    {
+        name:"tailwind",
+        images:"public/images/icons/icons8-追い風-css-96.png"
+    },
+    {
+        name:"docker",
+        images:"public/images/icons/icons8-デッカー-96.png"
+    },
+    {
+        name:"flutter",
+        images:"public/images/icons/icons8-はためく-96.png"
+    },
+    {
+        name:"dart",
+        images:"public/images/icons/icons8-ダーツ-96.png"
+    }
+]
