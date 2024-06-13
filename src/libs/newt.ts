@@ -19,6 +19,7 @@ type RequiredAndPartial<T,K extends keyof T> = Required<Pick<T,K>> & Partial<Omi
 export type RequiredImageType = RequiredAndPartial<Image,'_id'|'src'>
 
 export interface Post {
+    _id:string
     title: string
     content: string
     image : RequiredImageType[]

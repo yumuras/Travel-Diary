@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { newtClient } from "../../libs/newt";
 import type { Post,RequiredImageType } from "../../libs/newt"
-import  AllBlog  from "../../components/templates/AllBlog.tsx"
+import Card from "../../components/organisms/Card";
 
 
 const { items } = await newtClient.getContents<Post>({
@@ -12,11 +12,20 @@ const { items } = await newtClient.getContents<Post>({
         select:['_id','title','content','image','location']
     }
 })
-//console.log(items)
+console.log(items)
+const handleClick = () => {}
 ---
 
 <Layout title="Welcome to MyBlog.">
-    <main>
-        <AllBlog {...items} client:load/>
-    </main>
+    <section class="">
+        <ul class="grid grid-cols-2 md:grid-cols-3">
+            {items.map((item)=>(
+                <li>
+                    <a href={`/blog/${item._id}/`}>
+                        <Card {...item}/>
+                    </a>
+                </li>
+            ))}
+        </ul>
+    </section>
 </Layout>

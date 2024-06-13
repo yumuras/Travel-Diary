@@ -1,0 +1,28 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import BlogDetail from "../../components/templates/BlogDetail"
+import { newtClient } from "../../libs/newt";
+import type { Post,RequiredImageType } from "../../libs/newt"
+import type { ActionError, ActionInputError } from "astro:actions";
+
+export async function getStaticPaths() {
+    const { items } = await newtClient.getContents<Post>({
+        appUid : "blog" ,
+        modelUid : "post",
+        query : {
+            select:['_id','title','content','image','location']
+        }
+    })
+
+    return items.map((item)=>({
+        params : { slug : item._id } ,
+        props : { blog : item }
+    }))
+}
+
+const { blog }= Astro.props
+---
+
+<Layout title={blog.title}>
+    <BlogDetail {...blog}/>
+</Layout>
