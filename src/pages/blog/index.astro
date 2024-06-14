@@ -13,12 +13,11 @@ const { items } = await newtClient.getContents<Post>({
     }
 })
 console.log(items)
-const handleClick = () => {}
 ---
 
 <Layout title="Welcome to MyBlog.">
     <section class="">
-        <ul class="grid grid-cols-2 md:grid-cols-3">
+        <ul class="grid grid-cols-2 md:grid-cols-3 gap-4">
             {items.map((item)=>(
                 <li>
                     <a href={`/blog/${item._id}/`}>
