@@ -1,24 +1,30 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Pagination from "../../components/organisms/Pagination"
 import { newtClient } from "../../libs/newt";
 import type { Post,RequiredImageType } from "../../libs/newt"
 import Card from "../../components/organisms/Card";
+import type { GetStaticPathsOptions } from 'astro'
 
-
+export async function getStaticPaths({ paginate }:GetStaticPathsOptions) {
 const { items } = await newtClient.getContents<Post>({
     appUid : "blog" ,
     modelUid : "post",
     query : {
         select:['_id','title','content','image','location']
     }
-})
-console.log(items)
+    })
+    return paginate(items,{pageSize:2})
+}
+
+const { page } = Astro.props
+console.log(page)
 ---
 
 <Layout title="Welcome to MyBlog.">
-    <section class="">
+    <section class="font-zen">
         <ul class="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {items.map((item)=>(
+            {page.data.map((item)=>(
                 <li>
                     <a href={`/blog/${item._id}/`}>
                         <Card {...item}/>
@@ -26,5 +32,8 @@ console.log(items)
                 </li>
             ))}
         </ul>
+        <nav>
+            <Pagination pageProps={page} client:only="react"/>
+        </nav>
     </section>
 </Layout>

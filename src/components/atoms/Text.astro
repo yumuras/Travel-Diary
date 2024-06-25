@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { newtClient } from '../../libs/newt';
+import type { Text } from '../../libs/newt';
+import type { InferGetStaticParamsType, InferGetStaticPropsType, GetStaticPaths } from 'astro';
+
+const { items } = await newtClient.getContents<Text>({
+    appUid : "blog" ,
+    modelUid : "entry",
+})
+
+const blog = items[0]
+---
+<section>
+    <h3>{blog.title}</h3>
+    <div set:html={blog.body}> 
+    </div>
+</section>

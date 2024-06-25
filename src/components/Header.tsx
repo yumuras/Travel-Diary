@@ -13,10 +13,10 @@ return (
     <section>
         <header className="flex h-20 w-full px-10 justify-between rounded-md border-2 border-white bg-[#66A5AD] p-5 text-white shadow-xl">
             <h2 className="my-auto">旅行日記</h2>
-            <div className="gap-6 my-auto hidden md:block">
-                <a href="/">トップ</a>
-                <a href="/blog">日記</a>
-                <a href="/faq">お問い合わせ</a>
+            <div className="gap-6 my-auto hidden md:flex">
+                <a href="/">top</a>
+                <a href="/blog">diary</a>
+                <a href="/game">game</a>
             </div>
             <div className="flex items-center md:hidden">
             <button 

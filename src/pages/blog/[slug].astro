@@ -27,5 +27,5 @@ const { blog }= Astro.props as Props
 ---
 
 <Layout title={blog.title}>
-    <BlogDetail {...blog}/>
+    <BlogDetail {...blog} client:load/>
 </Layout>

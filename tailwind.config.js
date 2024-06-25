@@ -6,6 +6,7 @@ export default {
   theme: {
     fontFamily: {
       sans: ['DM Mono', ...defaultTheme.fontFamily.sans],
+      zen: ['Zen Maru Gothic',...defaultTheme.fontFamily.sans]
     },
     screens: {
       'sm': '641px',

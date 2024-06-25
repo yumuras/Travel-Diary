@@ -29,7 +29,11 @@ export interface Post {
     }
 }
 
-
+export interface Text {
+    _id:string
+    title: string
+    body:string
+}
 
 export const newtClient = createClient({
     spaceUid: import.meta.env.NEWT_SPACE_UID,
